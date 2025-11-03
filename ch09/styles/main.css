@@ -185,10 +185,13 @@ footer {
 	section {
 		order: 2;
 		flex-basis: 75%;
+		padding-left: 2em;
 	}
 	aside {
 		order: 1;
 		flex-basis: 25%;
+		border-right: 3px solid var(--primary-color);
+		padding-right: 1.5em;
 	}
 }
 
@@ -201,16 +204,19 @@ footer {
 .contact ul {
 	list-style-type: square;
 	margin-left: 2em;
+	padding-top: 0.5em;
 }
 
 .contact li {
 	margin-bottom: 0.75em;
 	padding-left: 0.5em;
+	font-size: 105%;
 }
 
 .contact a {
 	color: var(--accent-color);
 	text-decoration: underline;
+	font-weight: bold;
 }
 
 .contact a:hover,
