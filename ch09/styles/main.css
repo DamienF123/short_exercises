@@ -21,6 +21,7 @@ body {
     width: 80%;
     margin: auto;
     border: 3px solid var(--primary-color);
+	background-color: var(--light);
 }
 header, section, aside, footer { padding: 1em; }
 h1, h2, h3, p, article, blockquote { padding-bottom: .5em; }
@@ -79,27 +80,25 @@ header {
 /* main layout */
 main {
 	display: flex;
-	flex-direction: row;
 }
 aside {
 	flex: 1;
 	border-right: 3px solid var(--primary-color);
-	padding: 1em;
+	padding: 1.5em;
 }
 section.contact {
 	flex: 1;
-	padding: 1em;
+	padding: 1.5em;
 }
 
 /* contact list */
 .contact ul {
-	list-style-type: square;
-	margin-left: 2em;
+	list-style-type: none;
+	margin-left: 0;
 	padding-top: 0,5em;
 }
 .contact li {
 	margin-bottom: 0.75em;
-	padding-left: 0.5em;
 	font-size: 105%;
 }
 .contact a {
