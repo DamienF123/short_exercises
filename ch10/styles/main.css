@@ -7,6 +7,12 @@
 	--dark: black;
 }
 
+/* custom font for h1 */
+@font-face {
+	font-family: 'Ink Free';
+	src: url('../fonts/Inkfree.ttf') format('truetype');
+}
+
 /* reset */
 * {
 	margin: 0;
@@ -22,6 +28,7 @@ body {
     margin: auto;
     border: 3px solid var(--primary-color);
 }
+
 header, section, aside, footer { padding: 1em; }
 h1, h2, h3, p, article, blockquote { padding-bottom: .5em; }
 h1 { font-size: 150%; }
@@ -71,12 +78,12 @@ section {
 	& h2 {
 		color: var(--primary-color);
 	}
-	& article + h2 {
+	& section article + h2 {
 		clear: left;
 		border-top: 3px solid var(--primary-color);
 		padding-top: .5em;
 	}
-	& blockquote {
+	& section blockquote {
 		font-style: italic;
 		margin-left: 2em;
 	}
@@ -87,12 +94,25 @@ article {
 	border-top: 3px solid var(--primary-color);
 	padding-top: .5em;
 	margin-bottom: .5em;
-	& img {
-		float: left;
-		margin: .25em 1em 1em 0;
-		border: 1px solid var(--dark);
-		width: min(100%, 225px);
-	}
+}
+
+/* Figure and image styling */
+figure.speaker-photo {
+	float: left;
+	margin: .25em 1em 1em 0;
+	width: min(100%, 225px);
+	text-align: center;
+}
+
+figure.speaker-photo img {
+	width: 100%;
+	border: 1px solid var(--dark);
+}
+
+figure.speaker-photo figcaption {
+	font-size: 0.9em;
+	font-style: italic;
+	margin-bottom: .25em;
 }
 
 /* the styles for the aside */
@@ -114,4 +134,20 @@ footer {
 		color: white;
 		padding-bottom: 0; 
 	}
+}
+
+/* Contact list icons */
+ul li i {
+	color: var(--primary-color);
+	margin-right: .5em;
+}
+
+/* Link colors mixed from accent and primary */
+section a {
+	color: color-mix(in srgb, var(--accent-color) 65%, var(--primary-color) 35%);
+	text-decoration: none;
+}
+
+section a:hover {
+	text-decoration: underline;
 }
