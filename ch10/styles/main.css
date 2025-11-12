@@ -7,20 +7,20 @@
 	--dark: black;
 }
 
-/* custom font for h1 */
+/* Font Face */
 @font-face {
 	font-family: 'Ink Free';
 	src: url('../fonts/Inkfree.ttf') format('truetype');
 }
 
-/* Reset defaults */
+/* Reset Defaults */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-/* Base styles */
+/* Base Layout */
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
@@ -38,7 +38,7 @@ a:focus, a:hover { font-style: italic; }
 ul { list-style-type: none; }
 li { padding-bottom: .75em; }
 
-/* Header styles */
+/* Header Styles */
 header {
 	border-bottom: 3px solid var(--primary-color);
 	background-image: linear-gradient(30deg, 
@@ -63,13 +63,13 @@ header {
 	}
 }
 
-/* Main layout */
+/* Main Layout */
 main {
 	clear: left;
 	display: flex;
 }
 
-/* Section styles */
+/* Section (Main Content) */
 section {
 	flex-basis: 75%;
 	& h1 {
@@ -91,14 +91,14 @@ section {
 	}
 }
 
-/* Article styles */
+/* Article Styles */
 article {
 	border-top: 3px solid var(--primary-color);
 	padding-top: .5em;
 	margin-bottom: .5em;
 }
 
-/* Figure and image styling */
+/* Figure Styles */
 figure.speaker-photo {
 	float: left;
 	margin: .25em 1em 1em 0;
@@ -117,7 +117,7 @@ figure.speaker-photo figcaption {
 	margin-bottom: .25em;
 }
 
-/* Aside styles */
+/* Sidebar Styles */
 aside {
 	flex-basis: 25%;
 	& h2 {
@@ -128,7 +128,7 @@ aside {
 	}
 }
 
-/* Footer styles */
+/* Footer */
 footer {
 	background-color: var(--primary-color);
 	& p {
@@ -138,13 +138,13 @@ footer {
 	}
 }
 
-/* Contact list icons */
+/* Contact Setion */
 ul li i {
 	color: var(--primary-color);
 	margin-right: .5em;
 }
 
-/* Mixed link color */
+/* Links */
 section a {
 	color: color-mix(in srgb, var(--accent-color) 65%, var(--primary-color) 35%);
 	text-decoration: none;
