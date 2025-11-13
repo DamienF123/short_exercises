@@ -7,20 +7,20 @@
 	--dark: black;
 }
 
-/* Font Face */
+/* font face */
 @font-face {
 	font-family: 'Ink Free';
 	src: url('../fonts/Inkfree.ttf') format('truetype');
 }
 
-/* Reset Defaults */
+/* reset */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-/* Base Layout */
+/* default element styles */
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
@@ -38,7 +38,7 @@ a:focus, a:hover { font-style: italic; }
 ul { list-style-type: none; }
 li { padding-bottom: .75em; }
 
-/* Header Styles */
+/* header */
 header {
 	border-bottom: 3px solid var(--primary-color);
 	background-image: linear-gradient(30deg, 
@@ -63,19 +63,19 @@ header {
 	}
 }
 
-/* Main Layout */
+/* main layout */
 main {
 	clear: left;
 	display: flex;
 }
 
-/* Section (Main Content) */
+/* section */
 section {
 	flex-basis: 75%;
 	& h1 {
 		padding-top: .5em;
 		font-family: 'Ink Free', 'Comic Sans MS', cursive;
-		color: var(--primary-color);
+		color: black;
 	}
 	& h2 {
 		color: var(--primary-color);
@@ -91,14 +91,14 @@ section {
 	}
 }
 
-/* Article Styles */
+/* article */
 article {
 	border-top: 3px solid var(--primary-color);
 	padding-top: .5em;
 	margin-bottom: .5em;
 }
 
-/* Figure Styles */
+/* figure */
 figure.speaker-photo {
 	float: left;
 	margin: .25em 1em 1em 0;
@@ -117,7 +117,7 @@ figure.speaker-photo figcaption {
 	margin-bottom: .25em;
 }
 
-/* Sidebar Styles */
+/* aside */
 aside {
 	flex-basis: 25%;
 	& h2 {
@@ -128,7 +128,7 @@ aside {
 	}
 }
 
-/* Footer */
+/* footer */
 footer {
 	background-color: var(--primary-color);
 	& p {
@@ -138,13 +138,21 @@ footer {
 	}
 }
 
-/* Contact Setion */
-ul li i {
+/* Contact Us */
+.contact-header {
+	border-top: 3px solid var(--primary-color);
+	border-top-style: overline;
+	margin-top: 1.5em;
+	padding-top: .5em;
+	color: var(--primary-color);
+}
+
+.contact-list li i {
 	color: var(--primary-color);
 	margin-right: .5em;
 }
 
-/* Links */
+/* links */
 section a {
 	color: color-mix(in srgb, var(--accent-color) 65%, var(--primary-color) 35%);
 	text-decoration: none;
