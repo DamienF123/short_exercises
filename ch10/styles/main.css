@@ -168,9 +168,9 @@ aside h3 a {
 }
 
 article h3 {
-	color: var(--dark); /*month label in article */
+	color: black; /*Main article title (February: Scott Sampson) */
 }
 
 article h3 .speaker-name {
-	color: var(--dark); /* speaker name in article */
+	color: black; /* Ensures the name stays black too */
 }
