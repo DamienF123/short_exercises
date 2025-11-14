@@ -142,8 +142,8 @@ footer {
 .contact-header {
 	border-top: 3px solid var(--primary-color);
 	border-top-style: overline;
-	margin-top: 1.5em;
-	padding-top: .5em;
+	margin-top: 3em;
+	padding-top: .75em;
 	color: var(--primary-color);
 }
 
