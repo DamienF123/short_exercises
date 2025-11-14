@@ -161,3 +161,9 @@ section a {
 section a:hover {
 	text-decoration: underline;
 }
+
+/* Speaker name stying */
+aside h3 a,
+article h3 {
+	color: var(--accent-color);
+}
