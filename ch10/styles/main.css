@@ -162,8 +162,15 @@ section a:hover {
 	text-decoration: underline;
 }
 
-/* Speaker name stying */
-aside h3 a,
+/* Speaker name styling */
+aside h3 a {
+	color: var(--accent-color); /* sidebar speaker names */
+}
+
 article h3 {
-	color: var(--accent-color);
+	color: var(--dark); /*month label in article */
+}
+
+article h3 .speaker-name {
+	color: var(--dark); /* speaker name in article */
 }
