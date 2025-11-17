@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee table</title>
+
 	<style>
 		body {
 			font-family: Arial, Helvetica, sans-serif;
@@ -11,74 +12,194 @@
 			width: 80%;
 			margin: 1em auto;
 		}
+
 		table {
 			border-collapse: collapse;
 			border: 1px solid black;
 		}
-		thead {
-			background-color: lightgreen;
+
+		caption {
+			font-size: 1.4em;
+			font-weight: bold;
+			margin-bottom: .75;
 		}
+
 		th, td {
 			border: 1px solid black;
 			padding: .35em 1em .35em .5em;
 			text-align: left;
 			vertical-align: middle;
 		}
-		tbody tr:nth-child(even) td {
-			background-color: lightgrey;
+
+		/* Department header rows */
+		.dept {
+			background-color: lightgreen;
+			font-weight: bold;
 		}
+
+		/* Alternating detail rows */
+		tbody tr:nth-child(even) td {
+			background-color: #e6e6e6;
+		}
+
+		/* Right-align numeric column */
         tbody td:last-child {
             text-align: right;
         }
+
+		/* ----- DEFAULT = NARROW SCREEN ----- */
+
+		thead {
+			display: none; /* hide main header */
+		}
+
+		tbody tr {
+			display: block;
+			margin-bottom: .75em;
+			border: 1px solid #999;
+		}
+
+		td {
+			display: block;
+		}
+
+		/* Labels added before each cell */
+		td:nth-child(1)::before {
+			content: "Name: ";
+			display: block;
+			font-weight: bold;
+		}
+
+		td:nth-child(2)::before {
+			content: "E-mail: ";
+			display: block;
+			font-weight: bold;
+		}
+
+		td:nth-child(3)::before {
+			content: "Years of Service: ";
+			display: block;
+			font-weight: bold;
+		}
+
+		/* Department rows look like section headers */
+		.dept {
+			display: block;
+			text-align: left;
+			padding: .4em .6em;
+		}
+
+		/* Total row */
+		.total-row {
+			background-color: lightgreen;
+			font-weight: bold;
+			text-align: right;
+			display: block;
+			padding: .6em;
+		}
+
+		/* ----- WIDE SCREEN LAYOUT (> 640px) ----- */
+		@media (min-width: 640px) {
+			thead {
+				display: table-header-group;
+			}
+
+			tbody tr {
+				display: table-row;
+				margin: 0;
+				border: none;
+			}
+
+			td {
+				display: table-cell;
+			}
+
+			td::before {
+				content: "";
+				display: none;
+			}
+
+			.dept {
+				display: table-row;
+				font-weight: bold;
+				text-align: left;
+			}
+
+			.dept td {
+				background-color: lightgreen;
+				font-weight: bold;
+				border-left: none;
+				border-right: none;
+			}
+
+			.total-tow {
+				display: table-row;
+				background-color: lightgreen;
+				text-align: right;
+				font-weight: bold;
+			}
+		}
 	</style>
 </head>
 
 <body>
+
 <table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>E-mail</th>
-			<th class="right">Years of Service</th>
-		</tr>
-	</thead>
+	<caption>Employee Table</caption>
+
 	<tbody>
+		<!-- Editorial -->
+		<tr class="dept"><td colspan="3">Editorial</td></tr>
 		<tr>
 			<td>Joel Murach</td>
 			<td>joelmurach@yahoo.com</td>
-			<td>22</td>
+			<td class="years">22</td>
 		</tr>
+
 		<tr>
 			<td>Anne Boehm</td>
 			<td>anne@murach.com</td>
-			<td>34</td>
+			<td class="years">34</td>
 		</tr>
+
 		<tr>
 			<td>Zak Ruvalcaba</td>
 			<td>zak@modulemedia.com</td>
-			<td>4</td>
+			<td class="years">4</td>
 		</tr>
+
+		<!-- Marketing -->
+		<tr class="dept"><td colspan="3">Marketing</td></tr>
 		<tr>
 			<td>Judy Taylor</td>
 			<td>judy@murach.com</td>
-			<td>39</td>
+			<td class="years">39</td>
 		</tr>
 		<tr>
 			<td>Bethany Lee</td>
 			<td>bethany@murach.com</td>
-			<td>10</td>
+			<td class="years">10</td>
 		</tr>
+
+		<!-- Customer Service -->
+		<tr class="dept"><td colspan="3">Customer Service</td></tr>
 		<tr>
 			<td>Kelly Slivkoff</td>
 			<td>kelly@murach.com</td>
-			<td>25</td>
+			<td class="years">25</td>
 		</tr>
 		<tr>
 			<td>Juliette Baylon</td>
 			<td>juliette@murach.com</td>
-			<td>1</td>
+			<td class="years">1</td>
+		</tr>
+
+		<!-- Total -->
+		<tr class="total-row">
+			<td colspan="3">Total Years of Service: 105</td>
 		</tr>
 	</tbody>
 </table>
+
 </body>
 </html>
