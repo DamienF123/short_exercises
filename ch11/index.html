@@ -8,135 +8,97 @@
 	<style>
 		body {
 			font-family: Arial, Helvetica, sans-serif;
-            font-size: 100%;
 			width: 80%;
 			margin: 1em auto;
 		}
 
+		/* ----- Base Table Style (wide screen) ----- */
 		table {
+			width: 100%;
 			border-collapse: collapse;
 			border: 1px solid black;
 		}
 
 		caption {
 			font-size: 1.4em;
+			margin-bottom: .7em;
 			font-weight: bold;
-			margin-bottom: .75;
 		}
 
 		th, td {
 			border: 1px solid black;
-			padding: .35em 1em .35em .5em;
+			padding: .5em;
 			text-align: left;
-			vertical-align: middle;
 		}
 
-		/* Department header rows */
+		.years {
+			text-align: right;
+		}
+
 		.dept {
 			background-color: lightgreen;
 			font-weight: bold;
-		}
-
-		/* Alternating detail rows */
-		tbody tr:nth-child(even) td {
-			background-color: #e6e6e6;
-		}
-
-		/* Right-align numeric column */
-        tbody td:last-child {
-            text-align: right;
-        }
-
-		/* ----- DEFAULT = NARROW SCREEN ----- */
-
-		thead {
-			display: none; /* hide main header */
-		}
-
-		tbody tr {
-			display: block;
-			margin-bottom: .75em;
-			border: 1px solid #999;
-		}
-
-		td {
-			display: block;
-		}
-
-		/* Labels added before each cell */
-		td:nth-child(1)::before {
-			content: "Name: ";
-			display: block;
-			font-weight: bold;
-		}
-
-		td:nth-child(2)::before {
-			content: "E-mail: ";
-			display: block;
-			font-weight: bold;
-		}
-
-		td:nth-child(3)::before {
-			content: "Years of Service: ";
-			display: block;
-			font-weight: bold;
-		}
-
-		/* Department rows look like section headers */
-		.dept {
-			display: block;
-			text-align: left;
-			padding: .4em .6em;
 		}
 
 		/* Total row */
-		.total-row {
+		.total {
 			background-color: lightgreen;
-			font-weight: bold;
 			text-align: right;
-			display: block;
-			padding: .6em;
+			font-weight: bold;
 		}
 
-		/* ----- WIDE SCREEN LAYOUT (> 640px) ----- */
-		@media (min-width: 640px) {
-			thead {
-				display: table-header-group;
-			}
+		/* ----- NARROW SCREEN LAYOUT ----- */
+		@media (max-width: 639px) {
+			thead { display: none; }
 
-			tbody tr {
-				display: table-row;
-				margin: 0;
-				border: none;
-			}
-
-			td {
-				display: table-cell;
-			}
-
-			td::before {
-				content: "";
-				display: none;
-			}
-
+			/* Department headers full-width */
 			.dept {
-				display: table-row;
-				font-weight: bold;
-				text-align: left;
+				display: block;
+				width: 100%;
+				padding: .6em;
+				font-size: 1.1em;
+				border: 1px solid black;
 			}
 
-			.dept td {
-				background-color: lightgreen;
-				font-weight: bold;
-				border-left: none;
-				border-right: none;
+			/* Make each employee a block */
+			tbody tr {
+				display: block;
+				border: 1px solid #ccc;
+				margin-bottom: 1em;
 			}
 
-			.total-tow {
-				display: table-row;
-				background-color: lightgreen;
-				text-align: right;
+			/* Name on its own line */
+			td:nth-child(2),
+			td:nth-child(3),
+			td:nth-child(4) {
+				display: none; /* Hide other columns in stacking mode */
+			}
+
+			/* Show custom stacked layout */
+			.emp {
+				padding: 5em .6em;
+				display: block;
+				background: #f7f7f7;
+				border-bottom: 1px solid #ddd;
+			}
+
+			.emp-name {
 				font-weight: bold;
+				padding-bottom: .25em;
+			}
+
+			.emp-row {
+				display: flex;
+				justify-content: space-between;
+				font-size: .95em;
+			}
+
+			/* total row */
+			.total {
+				display: block;
+				padding: 1em;
+				font-size: 1.1em;
+				border: 1px solid black;
 			}
 		}
 	</style>
@@ -147,57 +109,97 @@
 <table>
 	<caption>Employee Table</caption>
 
+	<thead>
+		<tr>
+			<th>Department</th>
+			<th>Name</th>
+			<th>E-mail</th>
+			<th>Years of Service</th>
+		</tr>
+	</thead>
+
 	<tbody>
 		<!-- Editorial -->
 		<tr class="dept"><td colspan="3">Editorial</td></tr>
+		
 		<tr>
-			<td>Joel Murach</td>
-			<td>joelmurach@yahoo.com</td>
-			<td class="years">22</td>
+			<td colspan="4" class="emp">
+				<div class="emp-name">Joel Murach</div>
+				<div class="emp-row">
+					<span>joelmurach@yahoo.com</span>
+					<span>22</span>
+				</div>
+			</td>
 		</tr>
 
 		<tr>
-			<td>Anne Boehm</td>
-			<td>anne@murach.com</td>
-			<td class="years">34</td>
+			<td colspan="4" class="emp">
+				<div class="emp-name">Anne Boehm</div>
+				<div class="emp-row">
+					<span>anne@murrach,com</span>
+					<span>34</span>
+				</div>
+			</td>
 		</tr>
 
 		<tr>
-			<td>Zak Ruvalcaba</td>
-			<td>zak@modulemedia.com</td>
-			<td class="years">4</td>
+			<td colspan="4" class="emp">
+				<div class="emp-name">Zak Ruvacaba</div>
+				<div class="emp-row">
+					<span>zak@modulemedia.com</span>
+					<span>4</span>
+				</div>
+			</td>
 		</tr>
 
 		<!-- Marketing -->
-		<tr class="dept"><td colspan="3">Marketing</td></tr>
+		<tr class="dept"><td colspan="4">Marketing</td></tr>
 		<tr>
-			<td>Judy Taylor</td>
-			<td>judy@murach.com</td>
-			<td class="years">39</td>
+			<td colspan="4" class="emp">
+				<div class="emp-name">Judy Taylor</div>
+				<div class="emp-row">
+					<span>judy@murach.com</span>
+					<span>39</span>
+				</div>
+			</td>
 		</tr>
+
 		<tr>
-			<td>Bethany Lee</td>
-			<td>bethany@murach.com</td>
-			<td class="years">10</td>
+			<td colspan="4" class="emp">
+				<div class="emp-name">Bethany Lee</div>
+				<div class="emp-row">
+					<span>bethany@murach.com</span>
+					<span>10</span>
+				</div>
+			</td>
 		</tr>
 
 		<!-- Customer Service -->
-		<tr class="dept"><td colspan="3">Customer Service</td></tr>
+		<tr class="dept"><td colspan="4">Customer Service</td></tr>
 		<tr>
-			<td>Kelly Slivkoff</td>
-			<td>kelly@murach.com</td>
-			<td class="years">25</td>
-		</tr>
-		<tr>
-			<td>Juliette Baylon</td>
-			<td>juliette@murach.com</td>
-			<td class="years">1</td>
+			<td colspan="4" class="emp">
+				<div class="emp-name">Kelly Slivkoff</div>
+				<div class="emp-row">
+					<span>kelly@murach.com</span>
+					<span>25</span>
+				</div>
+			</td>
 		</tr>
 
-		<!-- Total -->
-		<tr class="total-row">
-			<td colspan="3">Total Years of Service: 105</td>
+		<tr>
+			<td colspan="4" class="emp">
+				<div class="emp-name">Juliette Baylon</div>
+				<div class="emp-row">
+					<span>juliette@murach.com</span>
+					<span>1</span>
+				</div>
+			</td>
 		</tr>
+
+		<tr class="total">
+			<td colspan="4">Total Years of Service: 105</td>
+		</tr>
+		
 	</tbody>
 </table>
 
