@@ -6,6 +6,7 @@
     <title>Employee table</title>
 
 	<style>
+
 		body {
 			font-family: Arial, Helvetica, sans-serif;
 			width: 80%;
@@ -16,84 +17,103 @@
 		table {
 			width: 100%;
 			border-collapse: collapse;
-			border: 1px solid black;
+			border: 1px solid #333;
 		}
 
 		caption {
-			font-size: 1.4em;
-			margin-bottom: .7em;
 			font-weight: bold;
+			font-size: 1.5em;
+			margin-bottom: .5em 0;
 		}
 
 		th, td {
-			border: 1px solid black;
 			padding: .5em;
+			border: 1px solid #333;
+		}
+
+		.years {
+			text-align: right;
+		}
+
+		/*department rows */
+		.dept {
+			background: #98d798;
+			font-weight: bold;
 			text-align: left;
 		}
 
-		.years { text-align: right; }
-
-		.dept {
-			background-color: lightgreen;
-			font-weight: bold;
+		/* alternating employee rows */
+		tbody tr:nth-child(odd) td:not(.dept-row):not(.total-row) td {
+			background: #efefef;
 		}
 
-		tbody tr:nth-child(odd) td:not(.dept):not(.total) {
-			background: #f7f7f7;
+		tbody tr:nth-child(even):not(.dept-row):not(.total-row) td {
+			background: #ffffff;
 		}
 
-		.total {
-			background-color: lightgreen;
+		/* total row */
+		.total-row td {
+			background: #98d798;
 			font-weight: bold;
 			text-align: right;
 		}
 
 		/* ----- NARROW SCREEN ----- */
-		@media (max-width: 639px) {
+		@media (max-width: 640px) {
 
-			table, thead, tbody, th, td, tr {
-				display: block;
+			thead {
+				display: none;
 			}
 
-			thead { display: none; }
-
-			/* Department ROW */
-			.dept {
+			table, tbody, tr, td, th {
 				display: block;
 				width: 100%;
-				border: 1px solid black;
-				padding: .6em;
+			}
+
+			/* department bar */
+			.dept {
+				padding: .8em;
+				font-size: 1.1em;
+				border: 1px solid #333;
 				margin-top: 1em;
 			}
 
-			/* EMPLOYEE CARD */
-			tr.emp-row {
+			/* employee row becomes a "card" */
+			tbody tr:not(.dept-row):not(.total-row) {
 				border: 1px solid #ccc;
 				margin-bottom: 1em;
-				background: white;
+				padding: .5em;
 			}
 
-			tr.emp-row td {
+			td {
 				border: none;
-				padding: .6em;
-				position: relative;
+				padding: .2em 0;
 			}
 
-			/* Stacked labels */
-			td[data-label]::before {
-				content: attr(data-label);
-				display: block;
+			td::before {
 				font-weight: bold;
-				margin-bottom: .2em;
+				display: block; /* aligns the label to the left */
+				margin-bottom: 2px;
 			}
 
-			/* TOTAL ROW */
-			.total {
-				display: block;
+			/* Labels for stacked layout */
+			td.name::before {
+				content: "Name";
+			}
+
+			td.email::before {
+				content: "E-mail";
+			}
+
+			td.years::before {
+				content: "Years of Servuce";
+			}
+
+			.total-row td {
+				border: 1px solid #333;
 				padding: 1em;
-				border: 1px solid black;
-				text-align: right;
 				margin-top: 1em;
+				text-align: right;
 			}
 		}
 	</style>
@@ -102,6 +122,7 @@
 <body>
 
 <table>
+
 	<caption>Employee Table</caption>
 
 	<thead>
@@ -116,7 +137,9 @@
 	<tbody>
 
 		<!-- Editorial -->
-		<tr><td class="dept" colspan="4">Editorial</td></tr>
+		<tr class="dept-row">
+			<th class="dept" colspan="4">Editorial</th>
+		</tr>
 
 		<tr class="emp-row">
 			<td data-label="Name">Joel Murach</td>
@@ -137,7 +160,9 @@
 		</tr>
 
 		<!-- Marketing -->
-		<tr><td class="dept" colspan="4">Marketing</td></tr>
+		<tr class="dept-row">
+			<th class="dept" colspan="4">Marketing</th>
+		</tr>
 
 		<tr class="emp-row">
 			<td data-label="Name">Judy Taylor</td>
@@ -153,7 +178,9 @@
 
 
 		<!-- Customer Service -->
-		<tr><td class="dept" colspan="4">Customer Service</td></tr>
+		<tr class="dept-row">
+			<th class="dept" colspan="4">Customer Service</th>
+		</tr>
 
 		<tr class="emp-row">
 			<td data-label="Name">Kelly Slivkoff</td>
@@ -173,6 +200,7 @@
 		</tr>
 		
 	</tbody>
+	
 </table>
 
 </body>
