@@ -12,11 +12,12 @@
 
 <form action="confirmation.html" method="post">
 
+	<!-- CONTACT INFORMATION-->
 	 <fieldset>
 		<legend>Contact information</legend>
 
 		<label for="email">Email address:</label>
-		<input type="email" id="email" accesskey="e" required autofocus>
+		<input type="email" id="email" name="email" accesskey="e" required autofocus>
 
 		<label for="fname">First name:</label>
 		<input type="text" id="fname" name="fname" accesskey="f" required>
@@ -25,18 +26,20 @@
 		<input type="text" id="lname" name="lname" accesskey="l" required>
 	 </fieldset>
 
-	  ><fieldset>
+	 <!-- GEOGRAPHIC INFORMATION -->
+	  <fieldset>
 		<legend>Geographic information</legend>
 
 		<label for="state">State:</label>
-		<input type="text" id="state" name="state" accesskay="s"
-				pattern="[A-za-z]{2}" placeholder="Two characters" required>
+		<input type="text" id="state" name="state" accesskey="s"
+				pattern="[A-Za-z]{2}" placeholder="Two characters" required>
 
 		<label for="zip">Zip code:</label>
 		<input type="text" id="zip" name="zip" accesskey="z"
 				pattern="[0-9]{5}" placeholder="Five digits" required>
 	  </fieldset>
 
+	  <!-- SOURCE INFORMATION -->
 	   <fieldset>
 		<legend>Source</legend>
 
