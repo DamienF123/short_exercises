@@ -2,6 +2,12 @@
 :root {
     --light: white;
     --dark: black;
+
+    /* button colors */
+    --green: #1b8c0f;
+    --green-dark: #136909;
+    --red: #c41212;
+    --red-dark: #960b0b;
 }
 
 /* reset */
@@ -21,15 +27,66 @@ body {
 h1, h2, h3 {
     padding-bottom: .5em;
 }
-form, input, select, textarea {
+form {
     width:100%;
 }
-input, select, button {
-    font-size: inherit;
-    padding: .25em;
-    margin-bottom: .5em;
-    border-radius: 5px;
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
 }
+
+legend {
+    font-weight: bold;
+    padding: 0 .5em;
+}
+
 label {
     display: block;
+    margin-top: .5em;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: .4em;
+    margin-top: .25em;
+    margin-bottom: .75em;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* VALIDATION COLORS */
+input:invalid, textarea:invalid, select:invalid {
+    border: 2px solid red;
+}
+
+input:valid, textarea:valid, select:valid {
+    border: 2px solid green;
+}
+
+/* BUTTONS */
+.btn.base {
+    width: 120px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn.submit {
+    background: var(--green);
+}
+
+.btn.submit:hover {
+    background: var(--green-dark);
+}
+
+.btn.reset {
+    background: var(--red);
+}
+
+.btn.reset:hover {
+    background: var(--red-dark);
 }
