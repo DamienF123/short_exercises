@@ -67,7 +67,6 @@ aside:first-of-type {
 	grid-column: 1 / 4;
 	grid-row: 2;
 	padding: 1em;
-	border-right: 3px solid var(--primary-color);
 }
 
 /* Main contenr column */
@@ -82,7 +81,6 @@ aside:last-of-type {
 	grid-column: 10 / 13;
 	grid-row: 2;
 	padding: 1em;
-	border-left: 3px solid var(--primary-color);
 }
 
 /* Footer spans entire width */
@@ -91,6 +89,7 @@ footer {
 	grid-row: 3;
 	padding: 1em;
 	background-color: var(--primary-color);
+	width: 100%;
 }
 
 footer p {
